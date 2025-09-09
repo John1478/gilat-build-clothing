@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GILAT BUILD CLOTHING</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    header p {
+      margin-top: 5px;
+      font-size: 1.1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #111;
+      margin-top: 0;
+    }
+
+    form {
+      margin-top: 20px;
+      position: relative;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="url"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 25px;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:disabled {
+      background: #666;
+      cursor: not-allowed;
+    }
+
+    .loading {
+      margin-top: 10px;
+      display: none;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .success {
+      margin-top: 15px;
+      padding: 10px;
+      background: #e6ffe6;
+      border: 1px solid #5cb85c;
+      border-radius: 6px;
+      color: #2d7a2d;
+      display: none;
+    }
+
+    .error {
+      margin-top: 10px;
+      padding: 10px;
+      background: #ffe6e6;
+      border: 1px solid #d9534f;
+      border-radius: 6px;
+      color: #a94442;
+      display: none;
+    }
+
+    .about, .privacy {
+      margin-top: 30px;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>GILAT BUILD CLOTHING</h1>
+    <p>Buy and Sell Fashion with Ease</p>
+  </header>
+
+  <div class="container">
+    <section class="intro">
+      <h2>Welcome to Our Marketplace</h2>
+      <p>
+        GILAT BUILD CLOTHING is your trusted ecommerce platform where people can
+        <strong>buy and sell clothing</strong> securely. Whether you are a fashion lover,
+        a designer, or a reseller, our platform connects you to the right customers.
+      </p>
+    </section>
+
+    <section class="form-section">
+      <h2>Submit Your Website URL</h2>
+      <p>Please provide your business website URL to help us verify and serve you better.</p>
+      <form id="urlForm" novalidate onsubmit="return false;">
+        <label for="website">Your Website URL:</label>
+        <input 
+          type="url" 
+          id="website" 
+          name="website" 
+          placeholder="https://example.com" 
+          required 
+          pattern="https://.*">
+        <button type="submit">Submit</button>
+        <div class="loading" id="loading">⏳ Submitting, please wait...</div>
+        <div class="success" id="success">✅ Your URL has been submitted successfully!</div>
+        <div class="error" id="error">❌ Please enter a valid URL that starts with https://</div>
+      </form>
+    </section>
+
+    <section class="about">
+      <h2>About Us</h2>
+      <p>
+        At GILAT BUILD CLOTHING, we believe fashion should be accessible to everyone.  
+        Our ecommerce platform empowers individuals and businesses to showcase, buy, and sell clothing products with confidence.
+      </p>
+    </section>
+
+    <section class="privacy">
+      <h2>Privacy & Terms</h2>
+      <p>
+        We respect your privacy. Any personal or business information you share with us, including your website URL,
+        will only be used for service verification and communication purposes.  
+        We do not sell or share your data with third parties without your consent.
+      </p>
+      <p>
+        By submitting your website URL, you agree to our privacy policy and terms of service.
+        We comply with global privacy standards to ensure your information is safe.
+      </p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 GILAT BUILD CLOTHING. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("urlForm");
+    const websiteInput = document.getElementById("website");
+    const loading = document.getElementById("loading");
+    const success = document.getElementById("success");
+    const error = document.getElementById("error");
+    const button = form.querySelector("button");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      success.style.display = "none";
+      error.style.display = "none";
+
+      const urlValue = websiteInput.value.trim();
+
+      // Check empty or not starting with https://
+      if (!urlValue || !urlValue.startsWith("https://")) {
+        error.style.display = "block";
+        return;
+      }
+
+      loading.style.display = "block";
+      button.disabled = true;
+
+      // Simulate "submitting" to server
+      setTimeout(() => {
+        loading.style.display = "none";
+        success.style.display = "block";
+        button.disabled = false;
+        form.reset();
+      }, 2000); // 2 seconds fake loading
+    });
+  </script>
+
+</body>
+</html>
