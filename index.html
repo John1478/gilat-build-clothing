@@ -46,7 +46,6 @@
 
     form {
       margin-top: 20px;
-      position: relative;
     }
 
     label {
@@ -106,8 +105,18 @@
       display: none;
     }
 
-    .about, .privacy {
+    .about, .privacy, .contact {
       margin-top: 30px;
+    }
+
+    .contact-info {
+      background: #f1f1f1;
+      padding: 15px;
+      border-radius: 6px;
+    }
+
+    .contact-info p {
+      margin: 8px 0;
     }
 
     footer {
@@ -175,6 +184,19 @@
         We comply with global privacy standards to ensure your information is safe.
       </p>
     </section>
+
+    <section class="contact">
+      <h2>Contact & Address</h2>
+      <div class="contact-info">
+        <p><strong>Business Name:</strong> GILAT BUILD CLOTHING</p>
+        <p><strong>Address:</strong> No. 22 Adewale Crescent, Oshodi, Lagos, Nigeria</p>
+        <p><strong>Email:</strong> marvellous@gilatbuild.name.ng</p>
+        <p><strong>Phone:</strong> +234 808 280 2998</p>
+      </div>
+      <p>
+        Having our physical office address listed ensures transparency.
+      </p>
+    </section>
   </div>
 
   <footer>
@@ -196,7 +218,6 @@
 
       const urlValue = websiteInput.value.trim();
 
-      // Check empty or not starting with https://
       if (!urlValue || !urlValue.startsWith("https://")) {
         error.style.display = "block";
         return;
@@ -205,13 +226,12 @@
       loading.style.display = "block";
       button.disabled = true;
 
-      // Simulate "submitting" to server
       setTimeout(() => {
         loading.style.display = "none";
         success.style.display = "block";
         button.disabled = false;
         form.reset();
-      }, 2000); // 2 seconds fake loading
+      }, 2000);
     });
   </script>
 
