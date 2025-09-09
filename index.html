@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GILAT BUILD CLOTHING</title>
+  <meta name="description" content="Buy and sell fashion securely with GILAT BUILD CLOTHING — your trusted ecommerce marketplace in Nigeria." />
+  <meta name="keywords" content="fashion, ecommerce, clothing, Nigeria, buy, sell" />
+  <meta property="og:title" content="GILAT BUILD CLOTHING" />
+  <meta property="og:description" content="A trusted ecommerce platform to buy and sell clothing securely." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gilatbuild.name.ng" />
+  <meta property="og:image" content="https://via.placeholder.com/600x300.png?text=GILAT+BUILD+CLOTHING" />
+  <link rel="icon" href="https://via.placeholder.com/32x32.png" />
+
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      line-height: 1.6;
       background-color: #f8f9fa;
       color: #333;
     }
-
     header {
       background: #111;
       color: #fff;
       padding: 20px;
       text-align: center;
     }
-
     header h1 {
       margin: 0;
-      font-size: 2.2rem;
+      font-size: 2rem;
     }
-
     header p {
-      margin-top: 5px;
-      font-size: 1.1rem;
+      margin: 5px 0 0;
     }
-
     .container {
       max-width: 900px;
       margin: 20px auto;
@@ -38,22 +41,18 @@
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-
     h2 {
       color: #111;
       margin-top: 0;
     }
-
     form {
       margin-top: 20px;
     }
-
     label {
       font-weight: bold;
       display: block;
       margin-bottom: 5px;
     }
-
     input[type="url"] {
       width: 100%;
       padding: 10px;
@@ -61,7 +60,6 @@
       border-radius: 6px;
       font-size: 1rem;
     }
-
     button {
       margin-top: 15px;
       padding: 12px 25px;
@@ -72,53 +70,25 @@
       cursor: pointer;
       font-size: 1rem;
     }
-
     button:disabled {
       background: #666;
-      cursor: not-allowed;
     }
-
-    .loading {
+    .message {
       margin-top: 10px;
-      display: none;
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    .success {
-      margin-top: 15px;
       padding: 10px;
+      border-radius: 6px;
+      display: none;
+    }
+    .success {
       background: #e6ffe6;
       border: 1px solid #5cb85c;
-      border-radius: 6px;
       color: #2d7a2d;
-      display: none;
     }
-
     .error {
-      margin-top: 10px;
-      padding: 10px;
       background: #ffe6e6;
       border: 1px solid #d9534f;
-      border-radius: 6px;
       color: #a94442;
-      display: none;
     }
-
-    .about, .privacy, .contact {
-      margin-top: 30px;
-    }
-
-    .contact-info {
-      background: #f1f1f1;
-      padding: 15px;
-      border-radius: 6px;
-    }
-
-    .contact-info p {
-      margin: 8px 0;
-    }
-
     footer {
       background: #111;
       color: #fff;
@@ -129,15 +99,14 @@
   </style>
 </head>
 <body>
-
   <header>
     <h1>GILAT BUILD CLOTHING</h1>
     <p>Buy and Sell Fashion with Ease</p>
   </header>
 
-  <div class="container">
-    <section class="intro">
-      <h2>Welcome to Our Marketplace</h2>
+  <main class="container">
+    <section>
+      <h2>Welcome</h2>
       <p>
         GILAT BUILD CLOTHING is your trusted ecommerce platform where people can
         <strong>buy and sell clothing</strong> securely. Whether you are a fashion lover,
@@ -145,59 +114,30 @@
       </p>
     </section>
 
-    <section class="form-section">
-      <h2>Submit Your Website URL</h2>
-      <p>Please provide your business website URL to help us verify and serve you better.</p>
-      <form id="urlForm" novalidate onsubmit="return false;">
+    <section>
+      <h2>Submit Your Website</h2>
+      <form id="urlForm" action="https://formspree.io/f/yourFormID" method="POST">
         <label for="website">Your Website URL:</label>
         <input 
           type="url" 
           id="website" 
           name="website" 
-          placeholder="https://example.com" 
-          required 
-          pattern="https://.*">
+          placeholder="https://example.com"
+          required />
         <button type="submit">Submit</button>
-        <div class="loading" id="loading">⏳ Submitting, please wait...</div>
-        <div class="success" id="success">✅ Your URL has been submitted successfully!</div>
-        <div class="error" id="error">❌ Please enter a valid URL that starts with https://</div>
+        <div id="success" class="message success">✅ Submitted successfully!</div>
+        <div id="error" class="message error">❌ Please enter a valid URL.</div>
       </form>
     </section>
 
-    <section class="about">
-      <h2>About Us</h2>
-      <p>
-        At GILAT BUILD CLOTHING, we believe fashion should be accessible to everyone.  
-        Our ecommerce platform empowers individuals and businesses to showcase, buy, and sell clothing products with confidence.
-      </p>
-    </section>
-
-    <section class="privacy">
-      <h2>Privacy & Terms</h2>
-      <p>
-        We respect your privacy. Any personal or business information you share with us, including your website URL,
-        will only be used for service verification and communication purposes.  
-        We do not sell or share your data with third parties without your consent.
-      </p>
-      <p>
-        By submitting your website URL, you agree to our privacy policy and terms of service.
-        We comply with global privacy standards to ensure your information is safe.
-      </p>
-    </section>
-
-    <section class="contact">
+    <section>
       <h2>Contact & Address</h2>
-      <div class="contact-info">
-        <p><strong>Business Name:</strong> GILAT BUILD CLOTHING</p>
-        <p><strong>Address:</strong> No. 22 Adewale Crescent, Oshodi, Lagos, Nigeria</p>
-        <p><strong>Email:</strong> marvellous@gilatbuild.name.ng</p>
-        <p><strong>Phone:</strong> +234 808 280 2998</p>
-      </div>
-      <p>
-        Having our physical office address listed ensures transparency.
-      </p>
+      <p><strong>Business Name:</strong> GILAT BUILD CLOTHING</p>
+      <p><strong>Address:</strong> No. 22 Adewale Crescent, Oshodi, Lagos, Nigeria</p>
+      <p><strong>Email:</strong> marvellous@gilatbuild.name.ng</p>
+      <p><strong>Phone:</strong> +234 808 280 2998</p>
     </section>
-  </div>
+  </main>
 
   <footer>
     <p>&copy; 2025 GILAT BUILD CLOTHING. All rights reserved.</p>
@@ -205,35 +145,31 @@
 
   <script>
     const form = document.getElementById("urlForm");
-    const websiteInput = document.getElementById("website");
-    const loading = document.getElementById("loading");
-    const success = document.getElementById("success");
-    const error = document.getElementById("error");
-    const button = form.querySelector("button");
+    const successMsg = document.getElementById("success");
+    const errorMsg = document.getElementById("error");
 
-    form.addEventListener("submit", function(e) {
+    form.addEventListener("submit", async function(e) {
       e.preventDefault();
-      success.style.display = "none";
-      error.style.display = "none";
+      successMsg.style.display = "none";
+      errorMsg.style.display = "none";
 
-      const urlValue = websiteInput.value.trim();
+      const websiteInput = document.getElementById("website").value.trim();
 
-      if (!urlValue || !urlValue.startsWith("https://")) {
-        error.style.display = "block";
+      if (!websiteInput.startsWith("https://")) {
+        errorMsg.style.display = "block";
         return;
       }
 
-      loading.style.display = "block";
-      button.disabled = true;
-
-      setTimeout(() => {
-        loading.style.display = "none";
-        success.style.display = "block";
-        button.disabled = false;
+      try {
+        const formData = new FormData(form);
+        await fetch(form.action, { method: "POST", body: formData });
+        successMsg.style.display = "block";
         form.reset();
-      }, 2000);
+      } catch (err) {
+        errorMsg.textContent = "❌ Submission failed. Try again.";
+        errorMsg.style.display = "block";
+      }
     });
   </script>
-
 </body>
 </html>
