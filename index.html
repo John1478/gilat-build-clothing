@@ -12,89 +12,122 @@
   <meta property="og:url" content="https://gilatbuild.name.ng" />
   <meta property="og:image" content="https://via.placeholder.com/600x300.png?text=GILAT+BUILD+CLOTHING" />
   <link rel="icon" href="https://via.placeholder.com/32x32.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    :root {
+      --primary: #111;
+      --accent: #ff6f61;
+      --bg: #f4f6f8;
+      --text: #333;
+    }
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
+      padding: 0;
+    }
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
     header {
-      background: #111;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       color: #fff;
-      padding: 20px;
+      padding: 40px 20px;
       text-align: center;
     }
     header h1 {
-      margin: 0;
-      font-size: 2rem;
+      font-size: 2.5rem;
+      font-weight: 700;
     }
     header p {
-      margin: 5px 0 0;
+      margin-top: 10px;
+      font-size: 1.2rem;
+      opacity: 0.9;
     }
     .container {
       max-width: 900px;
-      margin: 20px auto;
-      padding: 20px;
+      margin: 40px auto;
+      padding: 30px;
       background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
     h2 {
-      color: #111;
-      margin-top: 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--primary);
     }
-    form {
-      margin-top: 20px;
+    p {
+      margin-bottom: 20px;
+      font-size: 1rem;
     }
-    label {
-      font-weight: bold;
+    form label {
+      font-weight: 600;
+      margin-bottom: 8px;
       display: block;
-      margin-bottom: 5px;
     }
     input[type="url"] {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      padding: 14px 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
       font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    input[type="url"]:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255,111,97,0.2);
     }
     button {
       margin-top: 15px;
-      padding: 12px 25px;
-      background: #111;
+      padding: 14px 30px;
+      background: var(--accent);
       color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
       font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: #e55b4e;
+      transform: translateY(-2px);
     }
     button:disabled {
-      background: #666;
+      background: #aaa;
+      cursor: not-allowed;
     }
     .message {
-      margin-top: 10px;
-      padding: 10px;
-      border-radius: 6px;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 10px;
       display: none;
+      font-weight: 600;
     }
     .success {
-      background: #e6ffe6;
-      border: 1px solid #5cb85c;
-      color: #2d7a2d;
+      background: #e6ffed;
+      border: 1px solid #34c759;
+      color: #2c7a43;
     }
     .error {
-      background: #ffe6e6;
-      border: 1px solid #d9534f;
-      color: #a94442;
+      background: #ffecec;
+      border: 1px solid #ff4d4f;
+      color: #a30000;
     }
     footer {
-      background: #111;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
       color: #fff;
       text-align: center;
-      padding: 15px;
-      margin-top: 30px;
+      padding: 20px;
+      font-size: 0.9rem;
+      margin-top: 50px;
+      border-radius: 16px 16px 0 0;
     }
   </style>
 </head>
@@ -156,6 +189,7 @@
       const websiteInput = document.getElementById("website").value.trim();
 
       if (!websiteInput.startsWith("https://")) {
+        errorMsg.textContent = "❌ Please enter a valid URL (must start with https://)";
         errorMsg.style.display = "block";
         return;
       }
